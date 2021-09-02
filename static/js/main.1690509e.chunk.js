@@ -1,0 +1,2 @@
+(this["webpackJsonpinforce-test-task"]=this["webpackJsonpinforce-test-task"]||[]).push([[0],{9:function(t,e,s){"use strict";s.r(e);var n=s(1),c=s.n(n),r=s(3),a=s.n(r),i=s(0);var o=function(){return Object(i.jsx)("div",{className:"App"})};a.a.render(Object(i.jsx)(c.a.StrictMode,{children:Object(i.jsx)(o,{})}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.1690509e.chunk.js.map
