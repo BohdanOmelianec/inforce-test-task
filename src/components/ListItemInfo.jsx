@@ -6,11 +6,13 @@ import EditModal from './EditModal';
 
 
 const ListItemInfo = () => {
-    const currentElement = useSelector(state => state.productReducer.currentElement);
+    // Get element from the store that should be shown on this page
+    const currentElement = useSelector(state => state.productReducer.currentElement); 
     const [comment, setComment] = useState('');
     const [displayModal, setDisplay] = useState('none');
     const dispatch = useDispatch();
 
+    // Method takes a textarea value and dispatch an action to the reducer which updates the state and re-render the page
     const addComment = () => {
         dispatch({
             type: 'ADD_COMMENT',
@@ -21,7 +23,7 @@ const ListItemInfo = () => {
             }
         })
     }
-
+// Method dispatch an action to the reducer which removes comment and updates the state and re-render the page
     const removeElement = (id) => {
         if(window.confirm('Are you sure?')) {
             dispatch({
@@ -66,18 +68,20 @@ const ListItemInfo = () => {
                     <Span>Weight: </Span>
                     <Span>{currentElement.weight}</Span>
                 </ProductDescription>
+                {/* This block takes an array of comments of current element and render their on the page  */}
                 <ProductComments>
                     <Span>Comments: </Span>
                     <ComentDiv>{currentElement.comments.map(comment => {
                         return <React.Fragment key={comment.id}>
                         
                             <div>{comment.description}</div>
-                            <span>{comment.date}</span>
+                            <CommentDate>{comment.date}</CommentDate>
                             <RemoveBtn onClick={() => removeElement(comment.id)}>Remove</RemoveBtn>
                         </React.Fragment>
                     })}</ComentDiv>
                     
                 </ProductComments>
+                {/* This block exist to add new comment */}
                 <div>
                     <Textarea
                         value={comment}
@@ -93,6 +97,7 @@ const ListItemInfo = () => {
                     }}>Add Comment</AddComment>
                 </div>               
         </ProductCard>
+        {/* The arrow to turn back on main page */}
         <NavLink to='/inforce-test-task'><Back>&larr;</Back></NavLink>
         </>
     );
@@ -159,6 +164,11 @@ const ComentDiv = styled.div`
     background: #efefef;
 `;
 
+const CommentDate = styled.span`
+    font-size: 12px;
+    color: grey;
+`;
+
 const P = styled.div`
     display: inline-block;
     align-items: top;
@@ -197,5 +207,8 @@ const AddComment = styled.button`
     }
 `;
 
-const RemoveBtn = styled(AddComment)``;
+const RemoveBtn = styled(AddComment)`
+    align-self: flex-start;
+    margin: 5px 0;
+`;
 const EditBtn = styled(AddComment)``;

@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 const ProductItem = ({product}) => {
     const dispatch = useDispatch();
-    
+    // When user is clickink the SeeDetails button the method set element that should be shown on ListItemInfo page
     const setCurrentElement = () => {
         dispatch({
             type: 'SET_CURRENT_ELEMENT',
             payload: product
         })
     };
-
+    // Remove specific element from the page
     const removeElement = () => {
         if(window.confirm('Are you sure?')) {
             dispatch({
@@ -83,6 +83,7 @@ const ProductQuantity = styled.div`
 const ProductDescription = styled.p`
     height: 75px;
     overflow: hidden;
+    align-self: flex-start;
 `;
 
 const Buttons = styled.div`

@@ -3,102 +3,6 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 
-export const ModalBlock = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1050;
-	display: ${props => props.display};
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	background-color: rgba(0, 0, 0, 0.5);
-`
-
-export const ModalDialog = styled.div`
-	max-width: 500px;
-	margin: 40px auto;
-`
-
-export const ModalContent = styled.div`
-	position: relative;
-	width: 100%;
-	padding: 40px;
-	background-color: #efefef;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 4px;
-	max-height: 90vh;
-	overflow-y: auto;
-`
-
-export const ModalClose = styled.div`
-	position: absolute;
-	top: 8px;
-	right: 14px;
-	font-size: 30px;
-	color: #000;
-	opacity: 0.5;
-	font-weight: 700;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-`
-
-export const ModalTitle = styled.div`
-	text-align: center;
-	font-size: 22px;
-	text-transform: uppercase;
-`
-
-export const ModalInput = styled.input`
-	display: block;
-	margin: 20px auto 20px auto;
-	width: 300px;
-	height: 50px;
-	background: #fff;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-	border: none;
-	font-size: 18px;
-	text-align: center;
-	outline: 0;
-`
-
-const Textarea = styled.textarea`
-    display: block;
-	width: 300px;
-	height: 200px;
-    margin: 20px auto;
-    padding: 5px;
-	background: #fff;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-	border: none;
-	outline: none;
-    resize: none;
-    font-size: 18px;
-	text-align: left;
-`;
-
-export const ModalBtn = styled.button`
-	display: block;
-	width: 120px;
-	padding: 5px 20px;
-	height: 40px;
-	background: #2bd2ec;
-	color: white;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-`;
-
-
-const Buttons = styled.div`
-    margin: 0 auto;
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-
-`;
-
 function EditModal({display, close, info}) {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState(info.imageUrl);
@@ -224,3 +128,101 @@ function EditModal({display, close, info}) {
 }
 
 export default  EditModal;
+
+
+export const ModalBlock = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1050;
+	display: ${props => props.display};
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.5);
+`
+
+export const ModalDialog = styled.div`
+	max-width: 500px;
+	margin: 40px auto;
+`
+
+export const ModalContent = styled.div`
+	position: relative;
+	width: 100%;
+	padding: 40px;
+	background-color: #efefef;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	max-height: 90vh;
+	overflow-y: auto;
+`
+
+export const ModalClose = styled.div`
+	position: absolute;
+	top: 8px;
+	right: 14px;
+	font-size: 30px;
+	color: #000;
+	opacity: 0.5;
+	font-weight: 700;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+`
+
+export const ModalTitle = styled.div`
+	text-align: center;
+	font-size: 22px;
+	text-transform: uppercase;
+`
+
+export const ModalInput = styled.input`
+	display: block;
+	margin: 20px auto 20px auto;
+	width: 300px;
+	height: 50px;
+	background: #fff;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	border: none;
+	font-size: 18px;
+	text-align: center;
+	outline: 0;
+`
+
+const Textarea = styled.textarea`
+    display: block;
+	width: 300px;
+	height: 200px;
+    margin: 20px auto;
+    padding: 5px;
+	background: #fff;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	border: none;
+	outline: none;
+    resize: none;
+    font-size: 18px;
+	text-align: left;
+`;
+
+export const ModalBtn = styled.button`
+	display: block;
+	width: 120px;
+	padding: 5px 20px;
+	height: 40px;
+	background: #2bd2ec;
+	color: white;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+    cursor: pointer;
+`;
+
+
+const Buttons = styled.div`
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+
+`;

@@ -11,7 +11,7 @@ const ProductList = () => {
     const [displayModal, setDisplay] = useState('none');
 
     let productsCopy = [...products];
-    
+    // Sorting method that returns new sorted array or array from Redux store if any case isn't matched
     const sorting = () => {
         switch (value) {
             case 'less':
@@ -42,6 +42,7 @@ const ProductList = () => {
 
     return (
         <>
+            {/* Block for sorting by quantity in stock or names */}
             <Sort>
                 <Span>Sorting by quantity: </Span>
                 <Select onChange={ e => setValue(e.target.value) }>
@@ -57,8 +58,11 @@ const ProductList = () => {
                     <option value='za'>Z-A</option>
                 </Select>
             </Sort>
+            {/* The button opens the modal to add new product */}
             <NewProduct onClick={openModal}>NEW PRODUCT</NewProduct>
+            {/* Modal dialog that is hidden by default and opens when user is clicking New Product button */}
             <Modal display={displayModal} close={closeModal}/>
+            {/* This block renders array of product from the Redux store */}
             <Content>
                 {
                     productsCopy.map(product => <ProductItem key={product.id} product={product}/>)

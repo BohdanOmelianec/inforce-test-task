@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const NavBar = () => {
     return (
+        // Main link to home page
         <Navigation>
             <NavLink to='/inforce-test-task'>Product List</NavLink>
         </Navigation>

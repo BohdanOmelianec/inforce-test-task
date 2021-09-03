@@ -12,13 +12,16 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      {/* NavBar provides a header with main link to home page */}
       <NavBar />
       <Wrapper>
         <Route path='/inforce-test-task'  exact={true}>
+          {/* List of all products that are in localStorage */}
           <ProductList />
           <Redirect to='/inforce-test-task/' />
         </Route>
         <Route path='/list-item-info'  exact={true}>
+          {/* This element contains info of a specific element and renders when user is clicking SeeDetails button */}
           <ListItemInfo />
         </Route>
       </Wrapper>

@@ -88,6 +88,7 @@ export const ModalBtn = styled.button`
 	border: none;
 	outline: none;
 	border-radius: 5px;
+	cursor: pointer;
 `;
 
 
