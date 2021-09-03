@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const NavBar = () => {
     return (
         <Navigation>
-            <NavLink to='/'>Product List</NavLink>
+            <NavLink to='/inforce-test-task'>Product List</NavLink>
         </Navigation>
     );
 };

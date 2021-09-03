@@ -2,8 +2,31 @@ import React from "react";
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NavBar from "./components/NavBar";
-import routes from './components/routes';
+import { Redirect } from 'react-router';
 import { createGlobalStyle } from 'styled-components';
+import ProductList from "./components/ProductList";
+import ListItemInfo from "./components/ListItemInfo";
+
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <NavBar />
+      <Wrapper>
+        <Route path='/inforce-test-task'  exact={true}>
+          <ProductList />
+          <Redirect to='/inforce-test-task/' />
+        </Route>
+        <Route path='/list-item-info'  exact={true}>
+          <ListItemInfo />
+        </Route>
+      </Wrapper>
+    </>
+  );
+}
+
+export default App;
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -13,31 +36,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: Arial, Helvetica Neue, sans-serif;
     
   }
-`
-function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <NavBar />
-      <Wrapper>
-        {
-          routes.map(route => (
-            <Route path={route.path} key={route.toString()} exact={route.exact}>
-              {route.component}
-            </Route>
-          ))
-        }
-      </Wrapper>
-    </>
-  );
-}
-
-export default App;
-
+`;
 
 const Wrapper = styled.div`
   width: 80%;
-  border: 1px solid black;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

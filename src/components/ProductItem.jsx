@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const ProductItem = ({product}) => {
     const dispatch = useDispatch();
-
+    
     const setCurrentElement = () => {
         dispatch({
             type: 'SET_CURRENT_ELEMENT',
@@ -28,10 +28,10 @@ const ProductItem = ({product}) => {
             <ProductShortDesc>
                 <ProductName>{product.name}</ProductName>
                 <ProductQuantity>In stock: {product.count}</ProductQuantity>
-                <ProductDescription>{product.comments}</ProductDescription>
+                <ProductDescription>{product.description}</ProductDescription>
                 <Buttons>
                     <RemoveBtn onClick={removeElement}>Remove</RemoveBtn>
-                    <SeeDetailsBtn onClick={setCurrentElement}><NavLink to='/list-item-info'>See details</NavLink></SeeDetailsBtn>
+                    <NavLink to='/list-item-info'><SeeDetailsBtn onClick={setCurrentElement}>See details</SeeDetailsBtn></NavLink>
                 </Buttons>
             </ProductShortDesc>
         </ProductCard>
@@ -52,10 +52,10 @@ const ProductCard = styled.div`
 `;
 
 const ProductImage = styled.div`
-background: url(${props => props.url}) no-repeat center;
-background-size: cover;
-max-width: 100%;
-height: 300px;
+    background: url(${props => props.url}) no-repeat center;
+    background-size: cover;
+    max-width: 100%;
+    height: 300px;
 `;
 
 const ProductShortDesc = styled.div`

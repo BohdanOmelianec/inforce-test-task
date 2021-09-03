@@ -68,7 +68,7 @@ const Textarea = styled.textarea`
 	width: 300px;
 	height: 200px;
     margin: 20px auto;
-	padding: 5px;
+    padding: 5px;
 	background: #fff;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 	border: none;
@@ -83,7 +83,7 @@ export const ModalBtn = styled.button`
 	width: 120px;
 	padding: 5px 20px;
 	height: 40px;
-	background: ${props => props.disabled ? 'grey' : '#2bd2ec'};
+	background: #2bd2ec;
 	color: white;
 	border: none;
 	outline: none;
@@ -99,22 +99,23 @@ const Buttons = styled.div`
 
 `;
 
-function Modal({display, close}) {
+function EditModal({display, close, info}) {
     const dispatch = useDispatch();
-    const [imageUrl, setImageUrl] = useState('');
-    const [name, setName] = useState('');
-    const [count, setCount] = useState();
-    const [desc, setDesc] = useState('');
-    const [width, setWidth] = useState();
-    const [height, setHeight] = useState();
-    const [weight, setWeight] = useState();
+    const [imageUrl, setImageUrl] = useState(info.imageUrl);
+    const [name, setName] = useState(info.name);
+    const [count, setCount] = useState(info.count);
+    const [desc, setDesc] = useState(info.description);
+    const [width, setWidth] = useState(info.size.width);
+    const [height, setHeight] = useState(info.size.height);
+    const [weight, setWeight] = useState(parseInt(info.weight));
 
 
 	const submitBtn = () => {
 		if(imageUrl && name && count && desc && width && height && weight) {
 			dispatch({
-				type: 'ADD_PRODUCT',
+				type: 'EDIT_PRODUCT',
 				payload: {
+                    id: info.id,
 					imageUrl,
 					name,
 					count,
@@ -137,7 +138,7 @@ function Modal({display, close}) {
 				<ModalContent>
 					<form action="#">
 						<ModalClose onClick={close}>&times;</ModalClose>
-						<ModalTitle>New product</ModalTitle>
+						<ModalTitle>Edit product</ModalTitle>
 						
 						<ModalInput
 							onChange={e => {
@@ -212,7 +213,7 @@ function Modal({display, close}) {
 							type="number"
 						/>
 						<Buttons>
-                            <ModalBtn onClick={submitBtn} >Add</ModalBtn>
+                            <ModalBtn onClick={submitBtn} >Save</ModalBtn>
                             <ModalBtn  onClick={close}>Cancel</ModalBtn>
                         </Buttons>
 					</form>
@@ -222,4 +223,4 @@ function Modal({display, close}) {
 	)
 }
 
-export default  Modal;
+export default  EditModal;
